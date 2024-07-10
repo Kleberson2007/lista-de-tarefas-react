@@ -1,6 +1,8 @@
-import './app.css'
+import './style.css'
+import './style.css'
+import React from 'react';
 
-function App() {
+export default function App() {
   return (
     <div>
       <h1>lista de tarefas</h1>
@@ -9,4 +11,3 @@ function App() {
   );
 }
 
-export default App;
