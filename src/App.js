@@ -1,21 +1,29 @@
 import './style.css'
-import React from 'react';
-
-const tarefas = ["estudar HTML", "estudar CSS", "estudar JS"]
+import React, { useState } from 'react';
 
 export default function App() {
+
+  console.log("App()")
+
+  const [nova, setNova] = useState("")
+  const [tarefas, setTarefas] = useState(["Estudar CSS", "Estudar JS", "Estudar HTML", "Estudar React"])
+
+
+  function adicionar() {
+    setTarefas([...tarefas, nova])
+    setNova("")
+  }
+
   return (
     <div className='listadetarefas'>
       <header>
         <h1>Lista de tarefas</h1>
       </header>
-      <main>
-        <ul>{tarefas}</ul>        
-      </main>
-      <footer>
-        <input></input>
-        <button onClick="add">adicionar</button>
-      </footer>
+      <input value={nova} onChange={e => setNova(e.target.value)} />
+      <button onClick={adicionar}>add</button>
+      <ul>
+        {tarefas.map((t, i)=> <li key={i}>{t}</li>)}
+      </ul>
     </div>
   );
 }
