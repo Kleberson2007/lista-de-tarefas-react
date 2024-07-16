@@ -5,13 +5,33 @@
 
 body {
     min-height: 100vh;
-    border: 10px solid black;
     font-family: Arial;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(63, 63, 219);
+}
+
+.listadetarefas {
+    text-align: left;
+    padding: 10px;
+    border: 10px solid black;
+    background-color: rgb(106, 124, 163);
+    min-width: 100vh;
+    max-width: 100vh;
+    min-height: 65vh;
+    max-height: 65vh;
+    overflow: auto;
 }
 
 main {
     flex: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 4px;
 }
