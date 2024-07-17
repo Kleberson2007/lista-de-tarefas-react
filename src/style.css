@@ -13,7 +13,8 @@ body {
 }
 
 .listadetarefas {
-    text-align: left;
+    text-align: center;
+    font-family: Arial, sans-serif;
     padding: 10px;
     border: 10px solid black;
     background-color: rgb(106, 124, 163);
@@ -28,10 +29,34 @@ main {
     flex: auto;
 }
 
+h1 {
+    font-size: 3rem;
+}
+
+button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.adicionar:hover {
+    background-color: rgb(182, 180, 180);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
 ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    overflow: auto;
 }
 
 li {
-    padding: 4px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }

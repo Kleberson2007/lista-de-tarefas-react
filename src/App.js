@@ -9,13 +9,18 @@ export default function App() {
   const [tarefas, setTarefas] = useState(["Estudar CSS", "Estudar JS", "Estudar HTML", "Estudar React"])
 
 
-  function adicionar() {
+  function adicionar(e) {
+    e.preventDefault()
+    if(nova.trim() !== ""){
     setTarefas([...tarefas, nova])
-    setNova("")
+    setNova("");
+    }
   }
 
   function deletar(i) {
-    
+    const novasTarefas = [...tarefas];
+    novasTarefas.splice(i, 1);
+    setTarefas(novasTarefas);
   }
   
   function subir(i) {
@@ -26,35 +31,33 @@ export default function App() {
     
   }
 
-  function enter(event) {
-    if (event.key === 'Enter') {
-      adicionar();
-    }
-  }
+
 
   return (
     <div className='listadetarefas'>
       <header>
         <h1>Lista de tarefas</h1>
       </header>
-      <div>
+      <form onSubmit={adicionar}>
         <input
           type='text'
           placeholder='nome da tarefa...'
           value={nova}
-          onChange={e => setNova(e.target.value)}
-          onKeyDown={enter} />
-
-        <button onClick={adicionar}>
+          onChange={e => setNova(e.target.value)} />
+    
+        <button className='adicionar'>
           add
         </button>
-      </div>
+      </form>
       <ul>
-        {tarefas.map((t, i)=> 
-          <li key={i}>
-            {t}
-            <button className='botaodeletar' onClick={deletar(i)}>deletar</button>
-          </li>)}
+        {tarefas.map((tarefa, index)=> (
+          <li key={index}>
+            {tarefa}
+            <button className='botaodeletar' onClick={() => deletar(index)}>deletar</button>
+            <button className='botaomover' onClick={() => subir(index)}>⬆️</button>
+            <button className='botaomover' onClick={() => descer(index)}>⬇️</button>
+          </li>
+        ))}
       </ul>
     </div>
   );
