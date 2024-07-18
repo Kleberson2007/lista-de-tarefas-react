@@ -5,8 +5,8 @@ export default function App() {
 
   console.log("App()")
 
-  const [nova, setNova] = useState("")
   const [tarefas, setTarefas] = useState(["Estudar CSS", "Estudar JS", "Estudar HTML", "Estudar React"])
+  const [nova, setNova] = useState("")
 
 
   function adicionar(e) {
@@ -24,11 +24,21 @@ export default function App() {
   }
   
   function subir(i) {
-    
+    if(i > 0) {
+      const novasTarefas = [...tarefas];
+      [novasTarefas[i], novasTarefas[i - 1]] =
+      [novasTarefas[i - 1], novasTarefas[i]];
+      setTarefas(novasTarefas);
+    }
   }
 
   function descer(i) {
-    
+    if(i < tarefas.length - 1) {
+      const novasTarefas = [...tarefas];
+      [novasTarefas[i], novasTarefas[i + 1]] =
+      [novasTarefas[i + 1], novasTarefas[i]];
+      setTarefas(novasTarefas);
+    }
   }
 
 
@@ -44,7 +54,6 @@ export default function App() {
           placeholder='nome da tarefa...'
           value={nova}
           onChange={e => setNova(e.target.value)} />
-    
         <button className='adicionar'>
           add
         </button>

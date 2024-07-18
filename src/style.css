@@ -40,6 +40,13 @@ button {
     border: none;
     border-radius: 6px;
     background-color: white;
+    transition: background-color 1s;
+}
+
+.botaodeletar:hover {
+    background-color: rgb(194, 40, 22);
+    cursor: pointer;
+    transition: 0.7s;
 }
 
 .adicionar:hover {
