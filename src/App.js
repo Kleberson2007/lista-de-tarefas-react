@@ -7,16 +7,23 @@ export default function App() {
 
   const [tarefas, setTarefas] = useState(["Estudar CSS", "Estudar JS", "Estudar HTML", "Estudar React"])
   const [nova, setNova] = useState("")
-
+  const [edicao, setEdicao] = useState({ index: -1, texto: "" });
 
   function adicionar(e) {
     e.preventDefault()
     if(nova.trim() !== ""){
-    setTarefas([...tarefas, nova])
-    setNova("");
+      setTarefas([...tarefas, nova])
+      setNova("");
     }
   }
 
+  function editar(index) {
+    const novasTarefas = [...tarefas];
+    novasTarefas[index] = edicao.texto;
+    setTarefas(novasTarefas);
+    setEdicao({ index: -1, texto: "" });
+  }
+  
   function deletar(i) {
     const novasTarefas = [...tarefas];
     novasTarefas.splice(i, 1);
@@ -41,7 +48,11 @@ export default function App() {
     }
   }
 
-
+  function handleKeyPress(e, index) {
+    if (e.key === 'Enter') {
+      editar(index);
+    }
+  }
 
   return (
     <div className='listadetarefas'>
@@ -53,7 +64,8 @@ export default function App() {
           type='text'
           placeholder='nome da tarefa...'
           value={nova}
-          onChange={e => setNova(e.target.value)} />
+          onChange={e => setNova(e.target.value)} 
+        />
         <button className='adicionar'>
           add
         </button>
@@ -61,14 +73,28 @@ export default function App() {
       <ul>
         {tarefas.map((tarefa, index)=> (
           <li key={index}>
-            {tarefa}
-            <button className='botaodeletar' onClick={() => deletar(index)}>deletar</button>
-            <button className='botaomover' onClick={() => subir(index)}>⬆️</button>
-            <button className='botaomover' onClick={() => descer(index)}>⬇️</button>
+            {index === edicao.index ? (
+              <div>
+                <input
+                  type='text'
+                  value={edicao.texto}
+                  onChange={e => setEdicao({ ...edicao, texto: e.target.value })}
+                  onKeyDown={e => handleKeyPress(e, index)}
+                />
+                <button onClick={() => editar(index)}>Salvar</button>
+              </div>
+            ) : (
+              <div>
+                {tarefa}
+                <button onClick={() => setEdicao({ index, texto: tarefa })}>Editar</button>
+                <button className='botaodeletar' onClick={() => deletar(index)}>deletar</button>
+                <button className='botaomover' onClick={() => subir(index)}>⬆️</button>
+                <button className='botaomover' onClick={() => descer(index)}>⬇️</button>
+              </div>
+            )}
           </li>
         ))}
       </ul>
     </div>
   );
 }
-

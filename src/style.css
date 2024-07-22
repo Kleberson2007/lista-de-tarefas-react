@@ -17,12 +17,20 @@ body {
     font-family: Arial, sans-serif;
     padding: 10px;
     border: 10px solid black;
+    border-radius: 30px;
     background-color: rgb(106, 124, 163);
-    min-width: 100vh;
-    max-width: 100vh;
-    min-height: 65vh;
-    max-height: 65vh;
+    min-width: 800px;
+    max-width: 800px;
+    min-height: 600px;
+    max-height: 600px;
     overflow: auto;
+}
+
+input {
+    font-size: 1rem;
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 main {
@@ -41,15 +49,10 @@ button {
     border-radius: 6px;
     background-color: white;
     transition: background-color 1s;
+    margin-left: 10px;
 }
 
-.botaodeletar:hover {
-    background-color: rgb(194, 40, 22);
-    cursor: pointer;
-    transition: 0.7s;
-}
-
-.adicionar:hover {
+button:hover {
     background-color: rgb(182, 180, 180);
     cursor: pointer;
     transition: 0.5s;
@@ -64,6 +67,15 @@ ul {
 }
 
 li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 11px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 3px solid black;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden; 
+    overflow-y: auto;
 }
