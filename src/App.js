@@ -84,12 +84,16 @@ export default function App() {
                 <button onClick={() => editar(index)}>Salvar</button>
               </div>
             ) : (
-              <div>
-                {tarefa}
-                <button onClick={() => setEdicao({ index, texto: tarefa })}>Editar</button>
-                <button className='botaodeletar' onClick={() => deletar(index)}>deletar</button>
-                <button className='botaomover' onClick={() => subir(index)}>⬆️</button>
-                <button className='botaomover' onClick={() => descer(index)}>⬇️</button>
+              <div className='lis'>
+                <div className='texto'>
+                  {tarefa}
+                </div>
+                <div>
+                  <button onClick={() => setEdicao({ index, texto: tarefa })}>Editar</button>
+                  <button className='botaodeletar' onClick={() => deletar(index)}>deletar</button>
+                  <button className='botaomover' onClick={() => subir(index)}>⬆️</button>
+                  <button className='botaomover' onClick={() => descer(index)}>⬇️</button>
+                </div>
               </div>
             )}
           </li>
