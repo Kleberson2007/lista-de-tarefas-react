@@ -63,7 +63,7 @@ ul {
     padding: 0;
     margin: 0;
     max-height: 100%;
-
+    margin-top: 15px;
 }
 
 .lis {
@@ -89,5 +89,17 @@ ul {
     max-width: 390px;
     display: flex;
     justify-content: flex-start;
-    text-overflow: "..."
+    overflow: hidden;
+    white-space: nowrap;
+    
+    position: relative;
+}
+
+@keyframes textodeslizando {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
