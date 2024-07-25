@@ -76,7 +76,8 @@ export default function App() {
             {index === edicao.index ? (
               <div>
                 <input
-                  type='textedição'
+                  id='edição'
+                  type='text'
                   value={edicao.texto}
                   onChange={e => setEdicao({ ...edicao, texto: e.target.value })}
                   onKeyDown={e => handleKeyPress(e, index)}
