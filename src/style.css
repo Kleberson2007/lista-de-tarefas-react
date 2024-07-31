@@ -17,7 +17,7 @@ body {
     font-family: Arial, sans-serif;
     padding: 10px;
     border: 10px solid black;
-    border-radius: 30px;
+    border-radius: 19px;
     background-color: rgb(106, 124, 163);
     min-width: 800px;
     max-width: 800px;
@@ -104,11 +104,13 @@ ul {
     position: relative;
 }
 
-@keyframes textodeslizando {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+::-webkit-scrollbar {
+    width: 13px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 10px;
 }
