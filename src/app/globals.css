@@ -5,6 +5,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
@@ -13,5 +14,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(63, 63, 219);
 }
 
+h1 {
+    font-size: 3rem;
+}
+    
+button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+    transition: background-color 1s;
+    margin-left: 10px;
+}

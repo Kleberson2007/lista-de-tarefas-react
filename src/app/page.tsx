@@ -1,13 +1,13 @@
 'use client';
 import Link from "next/link";
-import "./login.module.css";
-import React, { FormEvent, useState } from 'react';
-
+import "./globals.css";
+import LoginForm from "./components/LoginForm";
 export default function Login() {
 
   return (
     <div>
-      <button><Link href="/lista">lista</Link></button>
+      <h1>Faça login</h1>
+      <LoginForm />
     </div>
   );
 }
