@@ -1,13 +1,11 @@
 'use client';
 import Link from "next/link";
 import "./globals.css";
-import LoginForm from "./components/LoginForm";
 export default function Login() {
 
   return (
     <div>
-      <h1>Faça login</h1>
-      <LoginForm />
+      <h1><a href="./lista">lista de tarefas</a></h1>
     </div>
   );
 }
